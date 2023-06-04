@@ -39,9 +39,9 @@ def main():
     print('directory success exits')
 
     # use zip command "zip -qvf" for placed files to a zip archive
-    #zip_command = "7z a -tzip -mx5 -r0 {0} {1}".format(target, ' '.join(glb.source))
+    zip_command = "7z a -tzip -mx5 -r0 {0} {1}".format(target, ' '.join(glb.source))
     #zip_command = "echo \"zip a -tzip -mx5 -r0 {1} {2}.format(target, ' '.join(source))\""
-    zip_command = "dir"
+    #zip_command = "dir"
     # run the backup
     if os.system(zip_command) == 0:
         print('backup success exists!!!')
