@@ -2,26 +2,27 @@
 import functional as fn
 import os
 import time
+import gvar as glb
 def main():
     
     # direcories and files that need to be copy are placed in the list
-    source = ['C:\\Users\\PC\\Test']  # TODO: make user input  
+      # TODO: make user input  
     
-    if os.path.exists(source[0]):
-        print(source[0])
+    if os.path.exists(glb.source[0]):
+        print(glb.source[0])
     else:
         print('Something went wrong')
     # for files with spaces need  use double quotes
     # backup copyes should be kept in main backup directory
-    target_dir = 'C:\\Users\\PC\\backup\\'  # 
-    if os.path.exists(target_dir):
-        print('target: ' + target_dir)
+      # 
+    if os.path.exists(glb.target_dir):
+        print('target: ' + glb.target_dir)
     else:
         print('Something went wrong')
         exit()
     # files are placed in a zip-archive
     # using current date as a name of subdirectory in a main directory
-    today = target_dir + os.sep + time.strftime('%Y%m%d')
+    today = glb.target_dir + os.sep + time.strftime('%Y%m%d')
     # using current time  as a name of a zip archive
     now = time.strftime('%Y%m%d')
     # we request user comment for file name
@@ -38,8 +39,8 @@ def main():
     print('directory success exits')
 
     # use zip command "zip -qvf" for placed files to a zip archive
-    zip_command = "7z a -tzip -mx5 -r0 {0} {1}".format(target, ' '.join(source))
-    #zip_command = "echo \"zip -qvr {1} {2}.format(target, ' '.join(source))\""
+    zip_command = "7z a -tzip -mx5 -r0 {0} {1}".format(target, ' '.join(glb.source))
+    #zip_command = "echo \"zip a -tzip -mx5 -r0 {1} {2}.format(target, ' '.join(source))\""
     # run the backup
     if os.system(zip_command) == 0:
         print('backup success exists!!!')
