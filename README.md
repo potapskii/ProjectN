@@ -1,3 +1,3 @@
 # Git vs GitHub
 # Git course
-Work with git. main commands and others
+Make a simple folder archive using 7z in Windows system
