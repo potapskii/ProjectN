@@ -1,8 +1,50 @@
 # -*- coding: utf-8 -*-
 import functional as fn
-
+import os
+import time
 def main():
-    fn.test()
+    
+    # direcories and files that need to be copy are placed in the list
+    source = ['C:\\Users\\PC\\Test']  # TODO: make user input  
+    
+    if os.path.exists(source[0]):
+        print(source[0])
+    else:
+        print('Something went wrong')
+    # for files with spaces need  use double quotes
+    # backup copyes should be kept in main backup directory
+    target_dir = 'C:\\Users\\PC\\backup\\'  # 
+    if os.path.exists(target_dir):
+        print('target: ' + target_dir)
+    else:
+        print('Something went wrong')
+        exit()
+    # files are placed in a zip-archive
+    # using current date as a name of subdirectory in a main directory
+    today = target_dir + os.sep + time.strftime('%Y%m%d')
+    # using current time  as a name of a zip archive
+    now = time.strftime('%Y%m%d')
+    # we request user comment for file name
+    comment = input('Enter comment -->')
+    if len(comment) == 0:
+        target = today + os.sep + now + '.zip'
+    else:
+        target = today + os.sep + now + '_' +\
+        comment.replace(' ', '_') + '.zip'
+    print(target)
+    # creating directory if it not exists
+    if not os.path.exists(today):
+        os.mkdir(today)
+    print('directory success exits')
+
+    # use zip command "zip -qvf" for placed files to a zip archive
+    zip_command = "7z a -tzip -mx5 -r0 {0} {1}".format(target, ' '.join(source))
+    #zip_command = "echo \"zip -qvr {1} {2}.format(target, ' '.join(source))\""
+    # run the backup
+    if os.system(zip_command) == 0:
+        print('backup success exists!!!')
+    else:
+        print('backup failt')
 
 if __name__ == "__main__":
     main()
