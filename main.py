@@ -6,7 +6,7 @@ import gvar as glb
 def main():
     
     # direcories and files that need to be copy are placed in the list
-      # TODO: make user input  
+    # TODO: make user input  
     
     if os.path.exists(glb.source[0]):
         print(glb.source[0])
