@@ -42,6 +42,12 @@ def global_backup():
     else:
         print('backup failt')
 
+def help_message_show():
+    print('****************************************************')
+    print('******          # help message #              ******')
+    print('******    Just to for learning Git Github      ******')
+    print('****************************************************')
+
 def path_from_file():
     # open and read file
     with open("C://Users//PC//PYTHON//ProjectN//backup.txt", "r") as f:
@@ -90,3 +96,4 @@ def path_from_file():
         print('backup success exists!!!')
     else:
         print('backup failt')
+

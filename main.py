@@ -16,5 +16,7 @@ if __name__ == "__main__":
             fn.global_backup()
         elif sys.argv[1] == '-f':
             fn.path_from_file()
+        elif sys.argv[1] == '-h':
+            fn.help_message_show()
         else:
             print('TODO# make default')
